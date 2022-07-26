@@ -43,6 +43,6 @@ public class Player : MonoBehaviour
             _rspeed = speed;
         }
 
-        _mytransform.Translate(_rspeed * Time.deltaTime * new Vector2(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical")));
+        _mytransform.Translate(_rspeed * Time.deltaTime * new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
     }
 }
