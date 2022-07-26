@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int speed;
+    private int _rspeed;
     public int sprintSpeed;
     private Transform _mytransform;
 
@@ -12,6 +13,7 @@ public class Player : MonoBehaviour
     {
         _mytransform = GetComponent<Transform>();
         speed = 5;
+        _rspeed = speed;
     }
 
     void Update()
@@ -31,6 +33,16 @@ public class Player : MonoBehaviour
         //}
         //_mytransform.Translate(speed * Time.deltaTime * Input.GetAxis("Horizontal") * Vector2.right);
         //_mytransform.Translate(speed * Time.deltaTime * Input.GetAxis("Vertical") * Vector2.up);
-        _mytransform.Translate(speed * Time.deltaTime * new Vector2(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical")));
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            _rspeed = sprintSpeed;
+        }
+        else
+        {
+            _rspeed = speed;
+        }
+
+        _mytransform.Translate(_rspeed * Time.deltaTime * new Vector2(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical")));
     }
 }
