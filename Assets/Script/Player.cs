@@ -45,4 +45,10 @@ public class Player : MonoBehaviour
 
         _mytransform.Translate(_rspeed * Time.deltaTime * new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
     }
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.tag=="MainCamera") {
+    //        _rspeed = -_rspeed; 
+    //    }
+    //}
 }
