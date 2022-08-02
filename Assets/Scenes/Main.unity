@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 805457314}
   m_Layer: 0
   m_Name: Square (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 808859746}
   m_Layer: 0
   m_Name: Muros
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -267,7 +267,7 @@ Transform:
   - {fileID: 805457316}
   - {fileID: 870431134}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &870431131
 GameObject:
@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 870431132}
   m_Layer: 0
   m_Name: Square (3)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -393,7 +393,7 @@ GameObject:
   - component: {fileID: 1040018165}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -595,7 +595,7 @@ MonoBehaviour:
   sprintSpeed: 10
   rotSpeed: 100
   Chamber: {fileID: 1126715953}
-  BulletPrefab: {fileID: 0}
+  BulletPref: {fileID: 6869004508383586040, guid: 416d8724087f062408993377da572edb, type: 3}
 --- !u!212 &1245170659
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -795,7 +795,7 @@ GameObject:
   - component: {fileID: 1377821749}
   m_Layer: 0
   m_Name: Square (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -893,60 +893,3 @@ Transform:
   m_Father: {fileID: 808859746}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!1001 &6869004507679850749
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6869004508383586037, guid: 416d8724087f062408993377da572edb, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6869004508383586037, guid: 416d8724087f062408993377da572edb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.6982002
-      objectReference: {fileID: 0}
-    - target: {fileID: 6869004508383586037, guid: 416d8724087f062408993377da572edb, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.44720006
-      objectReference: {fileID: 0}
-    - target: {fileID: 6869004508383586037, guid: 416d8724087f062408993377da572edb, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6869004508383586037, guid: 416d8724087f062408993377da572edb, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6869004508383586037, guid: 416d8724087f062408993377da572edb, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6869004508383586037, guid: 416d8724087f062408993377da572edb, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6869004508383586037, guid: 416d8724087f062408993377da572edb, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6869004508383586037, guid: 416d8724087f062408993377da572edb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6869004508383586037, guid: 416d8724087f062408993377da572edb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6869004508383586037, guid: 416d8724087f062408993377da572edb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6869004508383586040, guid: 416d8724087f062408993377da572edb, type: 3}
-      propertyPath: m_Name
-      value: Bullet
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 416d8724087f062408993377da572edb, type: 3}
