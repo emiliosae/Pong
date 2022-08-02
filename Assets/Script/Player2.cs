@@ -28,5 +28,20 @@ public class Player2 : MonoBehaviour
         }
 
         _mytransform.Translate(_rspeed * Time.deltaTime * new Vector2(Input.GetAxis("Horizontal2"),Input.GetAxis("Vertical2")));
+        //_mytransform.Translate(speed * Time.deltaTime * Vector2.right);
+        //if (Input.GetKey(KeyCode.LeftShift))
+        //{
+
+        //}
+        //if (Input.GetKey(KeyCode.D))
+        //{
+        //    _mytransform.Translate(speed * Time.deltaTime * Vector2.right);
+        //}
+        //else if (Input.GetKey(KeyCode.A))
+        //{
+        //    _mytransform.Translate(speed * Time.deltaTime * Vector2.left);
+        //}
+        //_mytransform.Translate(speed * Time.deltaTime * Input.GetAxis("Horizontal") * Vector2.right);
+        //_mytransform.Translate(speed * Time.deltaTime * Input.GetAxis("Vertical") * Vector2.up);
     }
 }

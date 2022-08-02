@@ -5,50 +5,46 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int speed;
-    private int _rspeed;
+    private int _respeed;
     public int sprintSpeed;
+    public int rotSpeed;
     private Transform _mytransform;
+    public Transform Chamber;
+    public GameObject BulletPref;
+    List<GameObject> _bulletList = new List<GameObject>();
 
     void Start()
     {
         _mytransform = GetComponent<Transform>();
         speed = 5;
-        _rspeed = speed;
+        _respeed = speed;
     }
 
     void Update()
     {
-        //_mytransform.Translate(speed * Time.deltaTime * Vector2.right);
-        //if (Input.GetKey(KeyCode.LeftShift))
-        //{
-
-        //}
-        //if (Input.GetKey(KeyCode.D))
-        //{
-        //    _mytransform.Translate(speed * Time.deltaTime * Vector2.right);
-        //}
-        //else if (Input.GetKey(KeyCode.A))
-        //{
-        //    _mytransform.Translate(speed * Time.deltaTime * Vector2.left);
-        //}
-        //_mytransform.Translate(speed * Time.deltaTime * Input.GetAxis("Horizontal") * Vector2.right);
-        //_mytransform.Translate(speed * Time.deltaTime * Input.GetAxis("Vertical") * Vector2.up);
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            _rspeed = sprintSpeed;
+            _respeed = sprintSpeed;
         }
         else
         {
-            _rspeed = speed;
+            _respeed = speed;
         }
 
-        _mytransform.Translate(_rspeed * Time.deltaTime * new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
+        _mytransform.Translate(_respeed * Time.deltaTime * new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
+        _mytransform.Rotate(Vector3.back, rotSpeed * Time.deltaTime * Input.GetAxis("Rotate"));
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            foreach (GameObject bullet in _bulletList)
+            {
+                if (bullet.GetComponent<Bullet>().Fire(Chamber)) return;
+            }
+            GameObject tempBullet = Instantiate(BulletPref);
+            _bulletList.Add(tempBullet);
+            tempBullet.GetComponent<Bullet>().Fire(Chamber);
+        }
+        //_mytransform.Rotate(Vector3.back, _rspeed * Time.deltaTime * new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")).normalized);
     }
-    //private void OnCollisionExit2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.tag=="MainCamera") {
-    //        _rspeed = -_rspeed; 
-    //    }
-    //}
 }
