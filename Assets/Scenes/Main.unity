@@ -372,6 +372,9 @@ MonoBehaviour:
   rotSpeed: 100
   Chamber: {fileID: 1126715953}
   BulletPref: {fileID: 6869004508383586040, guid: 416d8724087f062408993377da572edb, type: 3}
+  cam: {fileID: 1345863042}
+  axis: 1
+  inverted: 0
 --- !u!212 &1245170659
 SpriteRenderer:
   m_ObjectHideFlags: 0
