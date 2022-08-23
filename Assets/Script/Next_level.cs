@@ -9,8 +9,4 @@ public class Next_level : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        Debug.Log("Load Level");
-    }
 }
