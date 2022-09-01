@@ -18,11 +18,6 @@ public class Worker : Enemy
 
     public BANDO Bando;
 
-    void Start()
-    {
-        CurrentHp = MaxHp;
-    }
-
     private void Update()
     {
         switch (Bando)

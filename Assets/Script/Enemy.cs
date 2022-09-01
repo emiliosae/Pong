@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     public GameObject[] Targets;
     protected float _target;
     public Transform Player;
+    public float ShootTimer;
     #endregion
 
     // Start is called before the first frame update
@@ -24,6 +25,7 @@ public class Enemy : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         Targets = GameObject.FindGameObjectsWithTag("Enemy");
+        CurrentHp = MaxHp;
     }
 
     public virtual void ChangeHealth(int dmg) //Positvo es curar, negativo es recibir daño

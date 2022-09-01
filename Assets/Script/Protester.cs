@@ -4,20 +4,51 @@ using UnityEngine;
 
 public class Protester : Enemy
 {
+    public Transform Chamber;
+    public GameObject BulletPref;
+    List<GameObject> _bulletList = new List<GameObject>();
 
+    public enum STATE
+    {
+        Running =0,
+        Standing =1,
+        Following =2
+    }
+
+    public STATE State = STATE.Standing;
 
     void Update()
     {
         _dist = Vector3.Distance(Player.transform.position, transform.position);
-        _dir = (Player.transform.position - transform.position);
-        if (_dist < MinRange)
+        switch (State)
         {
-            _dir *= -1;
+            case STATE.Following:
+                Following();
+                if (_dist < MaxRange)
+                {
+                    State = STATE.Standing;
+                }
+                break;
+            case STATE.Standing:
+                Standing();
+                if (_dist < MinRange)
+                {
+                    State = STATE.Running;
+                }
+                else if (_dist > MaxRange)
+                {
+                    State = STATE.Following;
+                }
+                break;
+            case STATE.Running:
+                Running();
+                if(_dist> MinRange)
+                {
+                    State = STATE.Standing;
+                }
+                break;
         }
-        else if (_dist > MaxRange)
-        {
-            _dir *= -1;
-        }
+
     }
 
     private void FixedUpdate()
@@ -27,16 +58,27 @@ public class Protester : Enemy
 
     private void Running()
     {
-
+        _dir = -(Player.transform.position - transform.position);
     }
     
     private void Standing()
     {
-
+        _dir = new Vector3(0, 0, 0);
     }
 
     private void Following()
     {
+        _dir = Player.transform.position - transform.position;
+    }
 
+    private void Shoot()
+    {
+        foreach (GameObject bullet in _bulletList)
+        {
+            if (bullet.GetComponent<Bullet>().Fire(Chamber)) return;
+        }
+        GameObject tempBullet = Instantiate(BulletPref);
+        _bulletList.Add(tempBullet);
+        tempBullet.GetComponent<Bullet>().Fire(Chamber);
     }
 }
