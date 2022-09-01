@@ -42,7 +42,7 @@ public class Bullet : MonoBehaviour
     {
         if(collision.gameObject.tag == ("Enemy"))
         {
-            GetComponent<Enemy>().TakeDmg(Dmg);
+            GetComponent<Enemy>().ChangeHealth(Dmg);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)

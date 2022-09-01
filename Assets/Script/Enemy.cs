@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    #region vars
     public int MaxHp = 10;
     public int CurrentHp;
     protected Rigidbody2D _rb;
-    public float speed;
-    //public List<GameObject> Targets = new List<GameObject>();
+    protected Vector3 _dir;
+    protected float _dist;
+    public float MaxRange;
+    public float MinRange;
+    public float Speed;
     public GameObject Target;
     public GameObject[] Targets;
-    private float _target;
+    protected float _target;
+    public Transform Player;
+    #endregion
 
     // Start is called before the first frame update
     void Start()
@@ -20,26 +26,9 @@ public class Enemy : MonoBehaviour
         Targets = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
-    public void TakeDmg(int dmg)
+    public virtual void ChangeHealth(int dmg) //Positvo es curar, negativo es recibir daño
     {
-        CurrentHp -= dmg;
-
-        if (CurrentHp <= 0)
-        {
-            //cambio de bando
-        }
+        CurrentHp += dmg;
     }
-    protected void Good()
-    {
-        for (int value = 0; value <= Targets.Length; value ++)
-        {
-            float tempDistance = Vector3.Distance(transform.position, Targets[value].transform.position);
-            if( _target < tempDistance)
-            {
-                _target = tempDistance;
-                Target = Targets[value];
-            }
-        }
-        //poner movimiento
-    } 
+
 }

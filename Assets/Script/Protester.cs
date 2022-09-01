@@ -2,17 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Protester : MonoBehaviour
+public class Protester : Enemy
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+
     void Update()
     {
-        
+        _dist = Vector3.Distance(Player.transform.position, transform.position);
+        _dir = (Player.transform.position - transform.position);
+        if (_dist < MinRange)
+        {
+            _dir *= -1;
+        }
+        else if (_dist > MaxRange)
+        {
+            _dir *= -1;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        _rb.velocity = Time.deltaTime * Speed * _dir; 
+    }
+
+    private void Running()
+    {
+
+    }
+    
+    private void Standing()
+    {
+
+    }
+
+    private void Following()
+    {
+
     }
 }
