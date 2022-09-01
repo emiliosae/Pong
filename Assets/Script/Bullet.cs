@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour
 {
     public float speed;
     public Transform MyTransform;
+    public int Dmg;
 
 
     void Update()
@@ -37,6 +38,13 @@ public class Bullet : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == ("Enemy"))
+        {
+            GetComponent<Enemy>().TakeDmg(Dmg);
+        }
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == ("Wall"))

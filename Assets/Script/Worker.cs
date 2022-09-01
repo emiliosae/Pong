@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class Worker : Enemy
 {
-    public enum Bando
+    public enum BANDO
     {
         Good = 0,
         Neutral = 1,
         Bad = 2
     }
 
+    public BANDO Bando;
+
     void Start()
     {
         CurrentHp = MaxHp;
     }
 
-    public void TakeDmg(int dmg)
+    private void Update()
     {
-        CurrentHp -= dmg;
+        //switch (Bando)
+        //{
 
-        if (CurrentHp <= 0)
-        {
-            //cambio de bando
-        }
+        //}
     }
 }
