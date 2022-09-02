@@ -18,13 +18,13 @@ public class Megaphone : MonoBehaviour
         {
             if (Multiplicative)
             {
-                collision.gameObject.GetComponentInParent<Bullet>().Dmg *= DmgBuff;
+                collision.GetComponent<Player>().Dmg *= DmgBuff;
                 gameObject.SetActive(false);
                 Debug.Log(GetComponent<Bullet>().Dmg);
             }
             else
             {
-                collision.GetComponentInParent<Bullet>().Dmg += DmgBuff;
+                collision.GetComponent<Player>().Dmg += DmgBuff;
                 gameObject.SetActive(false);
                 Debug.Log(GetComponent<Bullet>().Dmg);
             }

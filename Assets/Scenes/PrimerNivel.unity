@@ -3470,6 +3470,7 @@ MonoBehaviour:
   speed: 100
   Chamber: {fileID: 1002608704}
   BulletPref: {fileID: 6869004508383586040, guid: 416d8724087f062408993377da572edb, type: 3}
+  Dmg: 2
   Pamflets: 0
   cam: {fileID: 0}
   axis: 1
@@ -4886,7 +4887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce30257e72dc594f9140885d2bc1937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplicative: 0
+  Multiplicative: 1
   DmgBuff: 1
 --- !u!212 &1662159799
 SpriteRenderer:

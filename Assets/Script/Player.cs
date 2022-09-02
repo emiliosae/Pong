@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     private Vector3 _dir;
     public Transform Chamber;
     public GameObject BulletPref;
+    public int Dmg;
     List<GameObject> _bulletList = new List<GameObject>();
     public int Pamflets = 0;
     private Rigidbody2D _rb;
@@ -39,6 +40,7 @@ public class Player : MonoBehaviour
             }
             GameObject tempBullet = Instantiate(BulletPref);
             _bulletList.Add(tempBullet);
+            tempBullet.GetComponent<Bullet>().Dmg = Dmg;
             tempBullet.GetComponent<Bullet>().Fire(Chamber);
         }
         //_mytransform.Rotate(Vector3.back, _rspeed * Time.deltaTime * new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")).normalized);
