@@ -57,45 +57,45 @@ public class Player : MonoBehaviour
         }
         //_mytransform.Rotate(Vector3.back, _rspeed * Time.deltaTime * new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")).normalized);
         #region Lookatmouse
-        if (cam == null)
-        {
-            Debug.LogError(gameObject.name + " target missing!");
-            return;
-        }
+        //if (cam == null)
+        //{
+        //    Debug.LogError(gameObject.name + " target missing!");
+        //    return;
+        //}
         // store mouse pixel coordinates
-        mousePosition = Input.mousePosition;
+        //mousePosition = Input.mousePosition;
 
         // distance in z between this object and the camera
         // so it always align with the object
-        mousePosition.z = -cam.transform.position.z + transform.position.z;
+        //mousePosition.z = -cam.transform.position.z + transform.position.z;
 
         // transform mousePosition from screen pixels to world position
-        lookAtPosition = cam.ScreenToWorldPoint(mousePosition);
+        //lookAtPosition = cam.ScreenToWorldPoint(mousePosition);
 
         // Calculate normalized direction
-        Vector2 direction = (lookAtPosition - transform.position).normalized;
+        //Vector2 direction = (lookAtPosition - transform.position).normalized;
 
-        Debug.DrawRay(transform.position, direction * 20f, Color.blue);
+        //Debug.DrawRay(transform.position, direction * 20f, Color.blue);
 
-        switch (axis)
-        {
-            case Axis.x:
-                if (!inverted)
-                    transform.right = direction; // Point x axis towards direction
-                else
-                    transform.right = -direction; // Point x axis towards inverted direction
-                break;
+        //switch (axis)
+        //{
+        //    case Axis.x:
+        //        if (!inverted)
+        //            transform.right = direction; // Point x axis towards direction
+        //        else
+        //            transform.right = -direction; // Point x axis towards inverted direction
+        //        break;
 
-            case Axis.y:
-                if (!inverted)
-                    transform.up = direction; // Point y axis towards direction
-                else
-                    transform.up = -direction; // Point y axis towards inverted direction
-                break;
+        //    case Axis.y:
+        //        if (!inverted)
+        //            transform.up = direction; // Point y axis towards direction
+        //        else
+        //            transform.up = -direction; // Point y axis towards inverted direction
+        //        break;
 
-            default:
-                break;
-        }
+        //    default:
+        //        break;
+        //}
         #endregion
     }
 }
