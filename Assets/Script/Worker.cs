@@ -36,7 +36,7 @@ public class Worker : Enemy
 
     private void FixedUpdate()
     {
-        _rb.velocity = Speed * Time.deltaTime * _dir;
+        _rb.velocity = Speed * Time.fixedDeltaTime * _dir;
     }
 
     public override void ChangeHealth(int dmg)

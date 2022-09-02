@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Player2
   - Wall
+  - Enemy
+  - Neutral
+  - Good
   layers:
   - Default
   - TransparentFX

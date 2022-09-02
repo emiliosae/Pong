@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int speed;
-    private int _respeed;
-    public int sprintSpeed;
-    public int rotSpeed;
-    private Transform _mytransform;
+    public int speed = 150;
+    private Vector3 _dir;
     public Transform Chamber;
     public GameObject BulletPref;
     List<GameObject> _bulletList = new List<GameObject>();
     public int Pamflets = 0;
-
+    private Rigidbody2D _rb;
     #region Point at vars
     public Camera cam;
     public enum Axis { x, y }
@@ -25,25 +22,14 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        _mytransform = GetComponent<Transform>();
-        speed = 5;
-        _respeed = speed;
+        _rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            _respeed = sprintSpeed;
-        }
-        else
-        {
-            _respeed = speed;
-        }
-
-        _mytransform.Translate(_respeed * Time.deltaTime * new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
-        //_mytransform.Rotate(Vector3.back, rotSpeed * Time.deltaTime * Input.GetAxis("Rotate"));
+        float vertical = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxis("Horizontal");
+        _dir = (vertical * transform.up + horizontal * transform.right).normalized;
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -97,5 +83,10 @@ public class Player : MonoBehaviour
         //        break;
         //}
         #endregion
+    }
+    private void FixedUpdate()
+    {
+        //_rb.AddForce(_dir * speed * Time.fixedDeltaTime);
+        _rb.velocity = _dir * speed * Time.fixedDeltaTime;
     }
 }

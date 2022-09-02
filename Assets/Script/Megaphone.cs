@@ -7,24 +7,26 @@ public class Megaphone : MonoBehaviour
     public bool Multiplicative;
     public int DmgBuff;
 
-    private void Start()
-    {
-        gameObject.SetActive(true);
-    }
+    //private void Start()
+    //{
+    //    gameObject.SetActive(true);
+    //}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == ("Player"))
+        if (collision.gameObject.tag == "Player" )
         {
             if (Multiplicative)
             {
-                GetComponent<Bullet>().Dmg *= DmgBuff;
+                collision.gameObject.GetComponentInParent<Bullet>().Dmg *= DmgBuff;
                 gameObject.SetActive(false);
+                Debug.Log(GetComponent<Bullet>().Dmg);
             }
             else
             {
-                GetComponent<Bullet>().Dmg += DmgBuff;
+                collision.GetComponentInParent<Bullet>().Dmg += DmgBuff;
                 gameObject.SetActive(false);
+                Debug.Log(GetComponent<Bullet>().Dmg);
             }
         }
     }

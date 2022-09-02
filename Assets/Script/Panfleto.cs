@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Panfleto : MonoBehaviour
 {
+    //[RequireComponent(Collider2D)]
     private void Start()
     {
         gameObject.SetActive(true);
@@ -11,10 +12,11 @@ public class Panfleto : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == ("Player"))
+        if (collision.gameObject.tag == "Player")
         {
-                GetComponent<Player>().Pamflets ++;
-                gameObject.SetActive(false);
+            collision.GetComponent<Player>().Pamflets++;
+            //GetComponent<Player>().Pamflets ++;
+            gameObject.SetActive(false);
         }
     }
 }

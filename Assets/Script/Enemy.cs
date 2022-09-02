@@ -8,11 +8,12 @@ public class Enemy : MonoBehaviour
     public int MaxHp = 10;
     public int CurrentHp;
     protected Rigidbody2D _rb;
+    [SerializeField]
     protected Vector3 _dir;
     protected float _dist;
     public float MaxRange;
     public float MinRange;
-    public float Speed;
+    public float Speed = 150;
     public GameObject Target;
     public GameObject[] Targets;
     protected float _target;
