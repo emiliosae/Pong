@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class Megaphone : MonoBehaviour
 {
-    private GameObject _megaphone;
     public bool Multiplicative;
     public int DmgBuff;
 
     private void Start()
     {
-        _megaphone.SetActive(true);
+        gameObject.SetActive(true);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -20,11 +19,12 @@ public class Megaphone : MonoBehaviour
             if (Multiplicative)
             {
                 GetComponent<Bullet>().Dmg *= DmgBuff;
+                gameObject.SetActive(false);
             }
             else
             {
                 GetComponent<Bullet>().Dmg += DmgBuff;
-                _megaphone.SetActive(false);
+                gameObject.SetActive(false);
             }
         }
     }

@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 71094022}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1142,7 +1142,7 @@ GameObject:
   - component: {fileID: 502120340}
   m_Layer: 0
   m_Name: Square (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1408,7 +1408,7 @@ GameObject:
   - component: {fileID: 532229867}
   m_Layer: 0
   m_Name: Square (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2816,7 +2816,7 @@ GameObject:
   - component: {fileID: 957681620}
   m_Layer: 0
   m_Name: ERecEsqDInf
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3117,7 +3117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1608920730}
-  axis: 1
+  axis: 0
   inverted: 0
 --- !u!1 &1112351382
 GameObject:
@@ -3355,8 +3355,9 @@ MonoBehaviour:
   speed: 0
   sprintSpeed: 0
   rotSpeed: 0
-  Chamber: {fileID: 0}
-  BulletPref: {fileID: 0}
+  Chamber: {fileID: 1002608704}
+  BulletPref: {fileID: 6869004508383586040, guid: 416d8724087f062408993377da572edb, type: 3}
+  Pamflets: 0
   cam: {fileID: 0}
   axis: 1
   inverted: 0
@@ -3736,7 +3737,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1341388663}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.46, y: 4.23, z: 0}
+  m_LocalPosition: {x: 6.04, y: 0.4, z: 0}
   m_LocalScale: {x: 0.08786232, y: 0.08786232, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3750,7 +3751,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1341388663}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed46b33fbb4455346a72d5b7eadffeb7, type: 3}
   m_Name: 
@@ -3762,7 +3763,7 @@ MonoBehaviour:
   Speed: 0
   Target: {fileID: 0}
   Targets: []
-  Player: {fileID: 0}
+  Player: {fileID: 1114104665}
   ShootTimer: 0
   HpLimitUp: 0
   NeutralUp: 0
@@ -4334,7 +4335,7 @@ GameObject:
   - component: {fileID: 1601257117}
   m_Layer: 0
   m_Name: ERecA
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5850,7 +5851,7 @@ GameObject:
   - component: {fileID: 2136781254}
   m_Layer: 0
   m_Name: ERecEsqDSup
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

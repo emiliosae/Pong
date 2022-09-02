@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public Transform Chamber;
     public GameObject BulletPref;
     List<GameObject> _bulletList = new List<GameObject>();
+    public int Pamflets = 0;
 
     #region Point at vars
     public Camera cam;
