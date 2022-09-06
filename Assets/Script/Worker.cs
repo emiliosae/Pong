@@ -55,6 +55,8 @@ public class Worker : Enemy
                 {
                     Bando = BANDO.Good;
                     gameObject.transform.tag = "Good";
+                    GetComponent<EnemyManager>().GoodWorkers.Add(gameObject.GetComponent<Worker>());
+                    GetComponent<EnemyManager>().Workers.Remove(gameObject.GetComponent<Worker>());
                 }
                 break;
             case BANDO.Good:
@@ -66,6 +68,8 @@ public class Worker : Enemy
                 {
                     Bando = BANDO.Neutral;
                     gameObject.transform.tag = "Neutral";
+                    GetComponent<EnemyManager>().Workers.Add(gameObject.GetComponent<Worker>());
+                    GetComponent<EnemyManager>().GoodWorkers.Remove(gameObject.GetComponent<Worker>());
                 }
                 break;
             case BANDO.Bad:

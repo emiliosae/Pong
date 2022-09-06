@@ -12,7 +12,11 @@ public class EnemyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject.FindGameObjectsWithTag("Good");
+        GameObject[] workers = GameObject.FindGameObjectsWithTag("Good");
+        for (int i =0; i< workers.Length;i++)
+        {
+            Workers.Add(workers[i].GetComponent<Worker>());
+        }
 
     }
 

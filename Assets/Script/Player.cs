@@ -126,11 +126,12 @@ public class Player : MonoBehaviour
         //_rb.AddForce(_dir * speed * Time.fixedDeltaTime);
         _rb.velocity = _dir * speed * Time.fixedDeltaTime;
     }
-    private void OnCollisionEnter2D(Collider2D collision)
+   
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Bullet")
+        if (collision.gameObject.tag == "Bullet")
         {
-            HP += collision.GetComponent<Bullet>().Dmg;
+            HP += collision.gameObject.GetComponent<Bullet>().Dmg;
             if (!_timerBool)
             {
                 _timerBool = true;
