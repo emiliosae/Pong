@@ -15,7 +15,6 @@ public class Panfleto : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             collision.GetComponent<Player>().Pamflets++;
-            //GetComponent<Player>().Pamflets ++;
             gameObject.SetActive(false);
         }
     }

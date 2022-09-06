@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6869004508383586036}
   m_Layer: 0
   m_Name: BulletPrefab
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 25.4
   MyTransform: {fileID: 6869004508383586037}
+  Dmg: 0
 --- !u!50 &6869004508383586039
 Rigidbody2D:
   serializedVersion: 4

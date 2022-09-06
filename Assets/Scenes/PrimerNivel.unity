@@ -3472,9 +3472,11 @@ MonoBehaviour:
   BulletPref: {fileID: 6869004508383586040, guid: 416d8724087f062408993377da572edb, type: 3}
   Dmg: 2
   Pamflets: 0
-  cam: {fileID: 0}
-  axis: 1
-  inverted: 0
+  MaxHP: 0
+  HP: 0
+  _playerSpeedDebuff: 0
+  _regenCD: 0
+  _hitBox: {fileID: 0}
 --- !u!50 &1114104668
 Rigidbody2D:
   serializedVersion: 4
@@ -3882,10 +3884,12 @@ MonoBehaviour:
   Targets: []
   Player: {fileID: 1114104665}
   ShootTimer: 0
+  EnemyDmg: 0
   HpLimitUp: 0
   NeutralUp: 0
   NeutralDown: 0
   HpLimitDown: 0
+  SpeedDebuff: 0
   Bando: 2
 --- !u!50 &1341388667
 Rigidbody2D:
@@ -4887,7 +4891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce30257e72dc594f9140885d2bc1937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Multiplicative: 1
+  Multiplicative: 0
   DmgBuff: 1
 --- !u!212 &1662159799
 SpriteRenderer:

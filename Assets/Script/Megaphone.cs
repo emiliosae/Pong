@@ -20,13 +20,13 @@ public class Megaphone : MonoBehaviour
             {
                 collision.GetComponent<Player>().Dmg *= DmgBuff;
                 gameObject.SetActive(false);
-                Debug.Log(GetComponent<Bullet>().Dmg);
+                //Debug.Log(GetComponent<Bullet>().Dmg);
             }
             else
             {
                 collision.GetComponent<Player>().Dmg += DmgBuff;
                 gameObject.SetActive(false);
-                Debug.Log(GetComponent<Bullet>().Dmg);
+                //Debug.Log(GetComponent<Bullet>().Dmg);
             }
         }
     }

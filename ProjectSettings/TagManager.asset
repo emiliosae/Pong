@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Neutral
   - Good
+  - Bullet
   layers:
   - Default
   - TransparentFX

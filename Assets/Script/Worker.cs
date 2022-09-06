@@ -8,6 +8,7 @@ public class Worker : Enemy
     public int NeutralUp;
     public int NeutralDown;
     public int HpLimitDown;
+    public float SpeedDebuff;
 
     public enum BANDO
     {
@@ -48,10 +49,12 @@ public class Worker : Enemy
                 if (CurrentHp < NeutralDown)
                 {
                     Bando = BANDO.Bad;
+                    gameObject.transform.tag = "Enemy";
                 }
                 else if (CurrentHp > NeutralUp)
                 {
                     Bando = BANDO.Good;
+                    gameObject.transform.tag = "Good";
                 }
                 break;
             case BANDO.Good:
@@ -62,6 +65,7 @@ public class Worker : Enemy
                 else if (CurrentHp < NeutralUp)
                 {
                     Bando = BANDO.Neutral;
+                    gameObject.transform.tag = "Neutral";
                 }
                 break;
             case BANDO.Bad:
@@ -72,6 +76,7 @@ public class Worker : Enemy
                 else if (CurrentHp > NeutralDown)
                 {
                     Bando = BANDO.Neutral;
+                    gameObject.transform.tag = "Neutral";
                 }
                 break;
         }
@@ -88,7 +93,7 @@ public class Worker : Enemy
                 Target = Targets[value];
             }
         }
-        _dir = Target.transform.position - transform.position;
+        _dir = (Target.transform.position - transform.position).normalized;
     }
 
     private void Neutral()

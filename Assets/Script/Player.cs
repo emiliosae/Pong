@@ -1,29 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public int speed = 150;
+    public float speed = 150;
     private Vector3 _dir;
     public Transform Chamber;
     public GameObject BulletPref;
-    public int Dmg;
+    [Min(0)]public int Dmg;
     List<GameObject> _bulletList = new List<GameObject>();
     public int Pamflets = 0;
     private Rigidbody2D _rb;
-    #region Point at vars
-    public Camera cam;
-    public enum Axis { x, y }
-    public Axis axis = Axis.y;
-    public bool inverted;
-    private Vector3 mousePosition;
-    private Vector3 lookAtPosition;
-    #endregion
+    [SerializeField]private int MaxHP;
+    public int HP;
+    private int _previousHP;
+    [SerializeField] private float _playerSpeedDebuff;
+    [SerializeField] private float _regenCD;
+    private bool _timerBool;
+    private float _regenWait;
+    [SerializeField] private GameObject _hitBox;
+    //#region Point at vars
+    //public Camera cam;
+    //public enum Axis { x, y }
+    //public Axis axis = Axis.y;
+    //public bool inverted;
+    //private Vector3 mousePosition;
+    //private Vector3 lookAtPosition;
+    //#endregion
 
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _previousHP = HP;
     }
 
     void Update()
@@ -31,6 +41,31 @@ public class Player : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
         float horizontal = Input.GetAxis("Horizontal");
         _dir = (vertical * transform.up + horizontal * transform.right).normalized;
+
+        if (_timerBool)
+        {
+            if (Time.time >= _regenWait)
+            {
+                _timerBool = false;
+                HP = MaxHP - _hitBox.GetComponent<WorkerDetectioon>().Enemies;
+            }
+        }
+
+        if (_previousHP > HP)
+        {
+            speed *= _playerSpeedDebuff;
+            _previousHP = HP;
+        }
+        else if (_previousHP < HP)
+        {
+            speed /= _playerSpeedDebuff;
+            _previousHP = HP;
+        }
+
+        if (HP <= 0)
+        {
+            SceneManager.LoadScene("Lose");
+        }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -90,5 +125,17 @@ public class Player : MonoBehaviour
     {
         //_rb.AddForce(_dir * speed * Time.fixedDeltaTime);
         _rb.velocity = _dir * speed * Time.fixedDeltaTime;
+    }
+    private void OnCollisionEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Bullet")
+        {
+            HP += collision.GetComponent<Bullet>().Dmg;
+            if (!_timerBool)
+            {
+                _timerBool = true;
+                _regenWait = Time.time + _regenCD;
+            }
+        }
     }
 }

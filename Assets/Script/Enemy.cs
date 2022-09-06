@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     protected float _target;
     public Transform Player;
     public float ShootTimer;
+    [Range(-1000f,0f)]public int EnemyDmg;
     #endregion
 
     // Start is called before the first frame update

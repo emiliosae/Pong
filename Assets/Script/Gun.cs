@@ -13,11 +13,6 @@ public class Gun : MonoBehaviour
     private Vector3 lookAtPosition;
     #endregion
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         if (cam == null)
