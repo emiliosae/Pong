@@ -3145,7 +3145,7 @@ GameObject:
   - component: {fileID: 1002608704}
   - component: {fileID: 1002608705}
   - component: {fileID: 1002608706}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3380,7 +3380,7 @@ GameObject:
   - component: {fileID: 1114104667}
   - component: {fileID: 1114104669}
   - component: {fileID: 1114104668}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: maya
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3788,9 +3788,10 @@ GameObject:
   - component: {fileID: 1341388666}
   - component: {fileID: 1341388668}
   - component: {fileID: 1341388667}
+  - component: {fileID: 1341388669}
   m_Layer: 0
   m_Name: trabajador (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3874,8 +3875,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed46b33fbb4455346a72d5b7eadffeb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHp: 10
   CurrentHp: 0
+  EnemyManager: {fileID: 0}
   _dir: {x: 0, y: 0, z: 0}
   MaxRange: 0
   MinRange: 0
@@ -3885,10 +3886,10 @@ MonoBehaviour:
   Player: {fileID: 1114104665}
   ShootTimer: 0
   EnemyDmg: 0
-  HpLimitUp: 0
-  NeutralUp: 0
-  NeutralDown: 0
-  HpLimitDown: 0
+  HpLimitUp: 20
+  NeutralUp: 15
+  NeutralDown: -15
+  HpLimitDown: -20
   SpeedDebuff: 0
   Bando: 2
 --- !u!50 &1341388667
@@ -3923,6 +3924,32 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 10, y: 13.333333}
+    newSize: {x: 10, y: 13.333333}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 10, y: 13.333333}
+  m_EdgeRadius: 0
+--- !u!61 &1341388669
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341388663}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

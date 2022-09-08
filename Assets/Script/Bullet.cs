@@ -38,18 +38,23 @@ public class Bullet : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag == ("Enemy"))
-        {
-            GetComponent<Enemy>().ChangeHealth(Dmg);
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if(collision.gameObject.tag == ("Enemy"))
+    //    {
+    //        GetComponent<Enemy>().ChangeHealth(Dmg);
+    //    }
+
+    //}
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == ("Wall"))
         {
             this.gameObject.SetActive(false);
+        }
+        if (collision.gameObject.tag == ("Good")|| collision.gameObject.tag == ("Neutral") || collision.gameObject.tag == ("Bad"))
+        {
+            collision.gameObject.GetComponent<Worker>().ChangeHealth(Dmg);
         }
     }
 }

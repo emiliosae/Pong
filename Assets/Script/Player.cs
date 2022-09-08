@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     List<GameObject> _bulletList = new List<GameObject>();
     public int Pamflets = 0;
     private Rigidbody2D _rb;
-    [SerializeField]private int MaxHP;
+    [SerializeField]private int MaxHP =10;
     public int HP;
     private int _previousHP;
     [SerializeField] private float _playerSpeedDebuff;
@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        HP = MaxHP;
         _previousHP = HP;
     }
 
@@ -64,7 +65,7 @@ public class Player : MonoBehaviour
 
         if (HP <= 0)
         {
-            SceneManager.LoadScene("Lose");
+            //SceneManager.LoadScene("Lose");
         }
 
         if (Input.GetKeyDown(KeyCode.Space))

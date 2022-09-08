@@ -5,9 +5,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     #region vars
-    public int MaxHp = 10;
     public int CurrentHp;
     protected Rigidbody2D _rb;
+    public GameObject EnemyManager;
     [SerializeField]
     protected Vector3 _dir;
     protected float _dist;
@@ -23,16 +23,21 @@ public class Enemy : MonoBehaviour
     #endregion
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         Targets = GameObject.FindGameObjectsWithTag("Enemy");
-        CurrentHp = MaxHp;
+        CurrentHp = 0;
     }
 
     public virtual void ChangeHealth(int dmg) //Positvo es curar, negativo es recibir daño
     {
         CurrentHp += dmg;
     }
-
+    public void Spawn()
+    {
+        if (this.gameObject.activeSelf) return;
+        this.gameObject.SetActive(true);
+        return;
+    }
 }

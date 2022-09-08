@@ -19,6 +19,11 @@ public class Worker : Enemy
 
     public BANDO Bando;
 
+    //protected override void Start()
+    //{
+    //    CurrentHp = 0;
+    //}
+
     private void Update()
     {
         switch (Bando)
@@ -49,12 +54,12 @@ public class Worker : Enemy
                 if (CurrentHp < NeutralDown)
                 {
                     Bando = BANDO.Bad;
-                    gameObject.transform.tag = "Enemy";
+                    this.gameObject.transform.tag = "Enemy";
                 }
                 else if (CurrentHp > NeutralUp)
                 {
                     Bando = BANDO.Good;
-                    gameObject.transform.tag = "Good";
+                    this.gameObject.transform.tag = "Good";
                     GetComponent<EnemyManager>().GoodWorkers.Add(gameObject.GetComponent<Worker>());
                     GetComponent<EnemyManager>().Workers.Remove(gameObject.GetComponent<Worker>());
                 }
@@ -67,7 +72,7 @@ public class Worker : Enemy
                 else if (CurrentHp < NeutralUp)
                 {
                     Bando = BANDO.Neutral;
-                    gameObject.transform.tag = "Neutral";
+                    this.gameObject.transform.tag = "Neutral";
                     GetComponent<EnemyManager>().Workers.Add(gameObject.GetComponent<Worker>());
                     GetComponent<EnemyManager>().GoodWorkers.Remove(gameObject.GetComponent<Worker>());
                 }
@@ -80,7 +85,7 @@ public class Worker : Enemy
                 else if (CurrentHp > NeutralDown)
                 {
                     Bando = BANDO.Neutral;
-                    gameObject.transform.tag = "Neutral";
+                    this.gameObject.transform.tag = "Neutral";
                 }
                 break;
         }

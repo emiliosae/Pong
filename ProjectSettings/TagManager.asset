@@ -10,6 +10,8 @@ TagManager:
   - Neutral
   - Good
   - Bullet
+  - Rioter
+  - Cop
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - UI
   - Player2
   - Obstacle
-  - 
+  - Friendly Fire
   - 
   - 
   - 

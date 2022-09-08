@@ -56,6 +56,12 @@ public class Protester : Enemy
         _rb.velocity = Time.deltaTime * Speed * _dir; 
     }
 
+    private void OnDisable()
+    {
+        EnemyManager.GetComponent<EnemyManager>().Rioters.Remove(this.gameObject.GetComponent<Protester>());
+        EnemyManager.GetComponent<EnemyManager>().Cops.Remove(this.gameObject.GetComponent<Protester>());
+    }
+
     private void Running()
     {
         _dir = -(Player.transform.position - transform.position);
