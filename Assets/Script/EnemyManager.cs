@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class EnemyManager : MonoBehaviour
     [SerializeField, Range(0f, 1f)] private float _winCondition;
     [SerializeField, Range(0f, 1f)] private float _riotCondition;
     [SerializeField, Range(0f, 1f)] private float _copCondition;
+    private int _startingWorkers;
+    public float workerPercent;
     //private bool _noRioters;
     //private bool _noCops;
     [SerializeField] private float _timer;
@@ -35,17 +38,20 @@ public class EnemyManager : MonoBehaviour
         for (int i = 0; i < rioters.Length; i++)
         {
             Rioters.Add(rioters[i].GetComponent<Protester>());
+            rioters[i].gameObject.SetActive(false);
         }
         GameObject[] cops = GameObject.FindGameObjectsWithTag("Cop");
         for (int i = 0; i < cops.Length; i++)
         {
             Cops.Add(cops[i].GetComponent<Protester>());
+            cops[i].gameObject.SetActive(false);
         }
+        _startingWorkers = Workers.Count;
     }
 
     void Update()
     {
-        int workerPercent = (GoodWorkers.Count) / (Workers.Count);
+        workerPercent = (GoodWorkers.Count) / _startingWorkers;
         if (Time.time>= _workerSpawn)
         {
             for (int i=0; i< Workers.Count; i ++)
@@ -62,10 +68,10 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    void SpawnRioter(int workerPercent)
+    void SpawnRioter(float workerPercent)
     {
-        if (workerPercent < _riotCondition) return;
-        _riotSpawn = Time.time + Random.Range(10, 20);
+        if (workerPercent <= _riotCondition) return;
+        _riotSpawn = Time.time + Random.Range(8, 20);
         if (Time.time < _riotSpawn) return;
         foreach (Protester riot in Rioters)
         {
@@ -73,10 +79,10 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    void SpawnCop(int workerPercent)
+    void SpawnCop(float workerPercent)
     {
         if (workerPercent < _copCondition) return;
-        _copSpawn = Time.time + Random.Range(15, 30);
+        _copSpawn = Time.time + Random.Range(10, 25);
         if (Time.time < _copSpawn) return;
         foreach (Protester cop in Cops)
         {

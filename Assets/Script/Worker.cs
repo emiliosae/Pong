@@ -105,7 +105,7 @@ public class Worker : Enemy
        
         for (int i = 0; i <= Targets.Count; i++)
         {
-            if (!Targets[i].gameObject.activeSelf) continue;
+            if (!Targets[i].gameObject.activeSelf)  continue;
             float tempDistance = Vector3.Distance(transform.position, Targets[i].transform.position);
             if (_target > tempDistance)
             {
