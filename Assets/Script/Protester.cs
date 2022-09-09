@@ -9,6 +9,8 @@ public class Protester : Enemy
     List<GameObject> _bulletList = new List<GameObject>();
     public int Dmg;
     [SerializeField] private float _shootTimer;
+    public int MaxHP;
+    //public List<Worker> Targets = new List<Worker>();
 
     public enum STATE
     {
@@ -26,7 +28,21 @@ public class Protester : Enemy
 
     void Update()
     {
+        if (CurrentHp >= MaxHP)
+        {
+            gameObject.SetActive(false);
+            EnemyManager.GetComponent<EnemyManager>().Rioters.Remove(gameObject.GetComponent<Protester>());
+            EnemyManager.GetComponent<EnemyManager>().Cops.Remove(gameObject.GetComponent<Protester>());
+        }
         _dist = Vector3.Distance(Player.transform.position, transform.position);
+        for (int i = 0; i < EnemyManager.GetComponent<EnemyManager>().Workers.Count; i++)
+        {
+            Targets.Add(EnemyManager.GetComponent<EnemyManager>().Workers[i]);
+        }
+        for (int i =0; i< EnemyManager.GetComponent<EnemyManager>().GoodWorkers.Count; i++)
+        {
+            Targets.Add(EnemyManager.GetComponent<EnemyManager>().GoodWorkers[i]);
+        }
         switch (State)
         {
             case STATE.Following:

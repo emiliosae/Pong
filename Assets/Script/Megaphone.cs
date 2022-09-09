@@ -6,13 +6,14 @@ public class Megaphone : MonoBehaviour
 {
     public bool Multiplicative;
     public int DmgBuff;
-    public int SpawnTimermin;
-    public float SpawnTimersec;
+    public int SpawnTimermin = 0;
+    public float SpawnTimersec = 0f;
     private float _timer;
 
 
     private void Start()
     {
+        gameObject.SetActive(false);
         SpawnTimermin *= 60;
         _timer = SpawnTimermin + SpawnTimersec;
     }

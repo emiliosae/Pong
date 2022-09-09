@@ -9,6 +9,7 @@ public class Worker : Enemy
     public int NeutralDown;
     public int HpLimitDown;
     bool _moving;
+    //public List<Protester> Targets = new List<Protester>();
 
     public enum BANDO
     {
@@ -26,6 +27,14 @@ public class Worker : Enemy
 
     private void Update()
     {
+        for (int i = 0; i < EnemyManager.GetComponent<EnemyManager>().Rioters.Count; i++)
+        {
+            Targets.Add(EnemyManager.GetComponent<EnemyManager>().Rioters[i]);
+        }
+        for (int i = 0; i < EnemyManager.GetComponent<EnemyManager>().Cops.Count; i++)
+        {
+            Targets.Add(EnemyManager.GetComponent<EnemyManager>().Cops[i]);
+        }
         switch (Bando)
         {
             case BANDO.Good:
@@ -61,7 +70,7 @@ public class Worker : Enemy
                     Bando = BANDO.Good;
                     this.gameObject.transform.tag = "Good";
                     GetComponent<EnemyManager>().GoodWorkers.Add(gameObject.GetComponent<Worker>());
-                    GetComponent<EnemyManager>().Workers.Remove(gameObject.GetComponent<Worker>());
+                    //GetComponent<EnemyManager>().Workers.Remove(gameObject.GetComponent<Worker>());
                 }
                 break;
             case BANDO.Good:
@@ -73,7 +82,7 @@ public class Worker : Enemy
                 {
                     Bando = BANDO.Neutral;
                     this.gameObject.transform.tag = "Neutral";
-                    GetComponent<EnemyManager>().Workers.Add(gameObject.GetComponent<Worker>());
+                    //GetComponent<EnemyManager>().Workers.Add(gameObject.GetComponent<Worker>());
                     GetComponent<EnemyManager>().GoodWorkers.Remove(gameObject.GetComponent<Worker>());
                 }
                 break;
@@ -93,13 +102,15 @@ public class Worker : Enemy
 
     private void Good()
     {
-        for (int value = 0; value <= Targets.Length; value++)
+       
+        for (int i = 0; i <= Targets.Count; i++)
         {
-            float tempDistance = Vector3.Distance(transform.position, Targets[value].transform.position);
+            if (!Targets[i].gameObject.activeSelf) continue;
+            float tempDistance = Vector3.Distance(transform.position, Targets[i].transform.position);
             if (_target > tempDistance)
             {
                 _target = tempDistance;
-                Target = Targets[value];
+                Target = Targets[i].gameObject;
             }
         }
         _dir = (Target.transform.position - transform.position).normalized;

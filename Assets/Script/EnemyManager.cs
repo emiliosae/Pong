@@ -29,6 +29,7 @@ public class EnemyManager : MonoBehaviour
         for (int i =0; i< workers.Length;i++)
         {
             Workers.Add(workers[i].GetComponent<Worker>());
+            workers[i].gameObject.SetActive(false);
         }
         GameObject[] rioters = GameObject.FindGameObjectsWithTag("Rioter");
         for (int i = 0; i < rioters.Length; i++)
@@ -47,9 +48,9 @@ public class EnemyManager : MonoBehaviour
         int workerPercent = (GoodWorkers.Count) / (Workers.Count);
         if (Time.time>= _workerSpawn)
         {
-            foreach (Worker worker in Workers)
+            for (int i=0; i< Workers.Count; i ++)
             {
-                if (worker.Spawn()) return;
+                if (Workers[i].GetComponent<Worker>().Spawn()) break;
             }
             _workerSpawn = Time.time + Random.Range(10, 30);
         }

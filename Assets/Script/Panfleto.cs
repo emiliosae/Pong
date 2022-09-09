@@ -11,6 +11,7 @@ public class Panfleto : MonoBehaviour
     //[RequireComponent(Collider2D)]
     private void Start()
     {
+        gameObject.SetActive(false);
         SpawnTimermin *= 60;
         _timer = SpawnTimermin + SpawnTimersec;
     }

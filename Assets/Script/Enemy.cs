@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     public float MinRange;
     public float Speed = 150;
     public GameObject Target;
-    public GameObject[] Targets;
+    public List<Enemy> Targets = new List<Enemy>();
     protected float _target;
     public Transform Player;
     public float ShootTimer;
@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
     protected virtual void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        Targets = GameObject.FindGameObjectsWithTag("Enemy");
+        EnemyManager = GameObject.Find("GameManager");
         CurrentHp = 0;
     }
 

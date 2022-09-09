@@ -102,9 +102,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentHp: 0
   EnemyManager: {fileID: 0}
+  _dir: {x: 0, y: 0, z: 0}
   MaxRange: 0
   MinRange: 0
-  Speed: 6
+  Speed: 150
   Target: {fileID: 0}
   Targets: []
   Player: {fileID: 0}
