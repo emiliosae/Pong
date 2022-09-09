@@ -34,10 +34,15 @@ public class Enemy : MonoBehaviour
     {
         CurrentHp += dmg;
     }
-    public void Spawn()
+    public void Spawn(bool flag)
     {
-        if (this.gameObject.activeSelf) return;
+        if (this.gameObject.activeSelf)
+        {
+            flag = false;
+            return;
+        }
         this.gameObject.SetActive(true);
+        flag = true;
         return;
     }
 }

@@ -42,7 +42,7 @@ public class EnemyManager : MonoBehaviour
         {
             foreach (GameObject worker in Workers)
             {
-                if (worker.GetComponent<Worker>().Spawn()) return;
+                if (worker.GetComponent<Worker>().Spawn(flag)) return;
             }
             GameObject worker = Instantiate(BulletPref);
             _bulletList.Add(tempBullet);
