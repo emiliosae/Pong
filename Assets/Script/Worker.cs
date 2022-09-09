@@ -8,7 +8,6 @@ public class Worker : Enemy
     public int NeutralUp;
     public int NeutralDown;
     public int HpLimitDown;
-    public float SpeedDebuff;
 
     public enum BANDO
     {

@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
 
         if (HP <= 0)
         {
-            //SceneManager.LoadScene("Lose");
+            SceneManager.LoadScene("Lose");
         }
 
         if (Input.GetKeyDown(KeyCode.Space))

@@ -8,7 +8,6 @@ public class Enemy : MonoBehaviour
     public int CurrentHp;
     protected Rigidbody2D _rb;
     public GameObject EnemyManager;
-    [SerializeField]
     protected Vector3 _dir;
     protected float _dist;
     public float MaxRange;
@@ -34,15 +33,13 @@ public class Enemy : MonoBehaviour
     {
         CurrentHp += dmg;
     }
-    public void Spawn(bool flag)
+    public bool Spawn()
     {
         if (this.gameObject.activeSelf)
         {
-            flag = false;
-            return;
+            return false;
         }
         this.gameObject.SetActive(true);
-        flag = true;
-        return;
+        return true;
     }
 }
