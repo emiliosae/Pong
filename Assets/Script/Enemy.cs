@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     public int CurrentHp;
     protected Rigidbody2D _rb;
     public GameObject EnemyManager;
-    protected Vector3 _dir;
+    public Vector3 _dir;
     protected float _dist;
     public float MaxRange;
     public float MinRange;

@@ -7,6 +7,8 @@ public class Protester : Enemy
     public Transform Chamber;
     public GameObject BulletPref;
     List<GameObject> _bulletList = new List<GameObject>();
+    public int Dmg;
+    [SerializeField] private float _shootTimer;
 
     public enum STATE
     {
@@ -16,6 +18,11 @@ public class Protester : Enemy
     }
 
     public STATE State = STATE.Standing;
+
+    private void OnEnable()
+    {
+        _shootTimer = Time.time + Random.Range(1, 3) + Random.Range(0f, 0.99f);
+    }
 
     void Update()
     {
@@ -48,7 +55,17 @@ public class Protester : Enemy
                 }
                 break;
         }
-
+        if (Time.time >= _shootTimer)
+        {
+            foreach (GameObject bullet in _bulletList)
+            {
+                if (bullet.GetComponent<Bullet>().Fire(Chamber)) return;
+            }
+            GameObject tempBullet = Instantiate(BulletPref);
+            _bulletList.Add(tempBullet);
+            tempBullet.GetComponent<Bullet>().Dmg = Dmg;
+            tempBullet.GetComponent<Bullet>().Fire(Chamber);
+        }
     }
 
     private void FixedUpdate()

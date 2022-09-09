@@ -8,6 +8,7 @@ public class Worker : Enemy
     public int NeutralUp;
     public int NeutralDown;
     public int HpLimitDown;
+    bool _moving;
 
     public enum BANDO
     {
@@ -106,11 +107,20 @@ public class Worker : Enemy
 
     private void Neutral()
     {
+        if (_moving) return;
         _dir = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0).normalized;
+        _moving = true;
+        StartCoroutine(WaitForDirCD());
     }
 
     private void Bad()
     {
         _dir = Player.position - transform.position;
+    }
+    
+    IEnumerator WaitForDirCD()
+    {
+        yield return new WaitForSeconds(3);
+        _moving = false;
     }
 }
