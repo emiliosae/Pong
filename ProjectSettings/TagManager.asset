@@ -19,7 +19,7 @@ TagManager:
   - Player
   - Water
   - UI
-  - Player2
+  - Enemy
   - Obstacle
   - Friendly Fire
   - EnemyFire

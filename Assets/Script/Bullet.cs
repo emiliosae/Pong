@@ -38,6 +38,7 @@ public class Bullet : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
+<<<<<<< Updated upstream
     //private void OnTriggerEnter2D(Collider2D collision)
     //{
     //    if(collision.gameObject.tag == ("Enemy"))
@@ -46,6 +47,20 @@ public class Bullet : MonoBehaviour
     //    }
 
     //}
+=======
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == ("Enemy"))
+        {
+            var dmgComponent = collision.GetComponent<Worker>();
+            if (dmgComponent != null)
+            {
+                dmgComponent.TakeDmg(Dmg);
+            }
+        }
+    }
+
+>>>>>>> Stashed changes
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == ("Wall"))

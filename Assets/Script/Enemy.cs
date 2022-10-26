@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     #region vars
     public int CurrentHp;
     protected Rigidbody2D _rb;
+<<<<<<< Updated upstream
     public GameObject EnemyManager;
     public Vector3 _dir;
     protected float _dist;
@@ -20,11 +21,23 @@ public class Enemy : MonoBehaviour
     public float ShootTimer;
     [Range(-1000f,0f)]public int EnemyDmg;
     #endregion
+=======
+    public float speed;
+
+    public enum Bando
+    {
+        Good = 0,
+        Neutral = 1,
+        Bad = 2
+    }
+
+>>>>>>> Stashed changes
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+<<<<<<< Updated upstream
         EnemyManager = GameObject.Find("GameManager");
         CurrentHp = 0;
     }
@@ -41,5 +54,18 @@ public class Enemy : MonoBehaviour
         }
         this.gameObject.SetActive(true);
         return true;
+=======
+        CurrentHp = MaxHp;
+>>>>>>> Stashed changes
     }
+
+    //public void TakeDmg(int dmg)
+    //{
+    //    CurrentHp -= dmg;
+    //    Debug.Log("auch");
+    //    if (CurrentHp <= 0)
+    //    {
+    //        //cambio de bando
+    //    }
+    //}
 }

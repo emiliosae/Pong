@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Worker : Enemy
 {
+<<<<<<< Updated upstream
     public int HpLimitUp;
     public int NeutralUp;
     public int NeutralDown;
@@ -12,12 +13,12 @@ public class Worker : Enemy
     //public List<Protester> Targets = new List<Protester>();
 
     public enum BANDO
+=======
+    private void Update()
+>>>>>>> Stashed changes
     {
-        Good = 0,
-        Neutral = 1,
-        Bad = 2
-    }
 
+<<<<<<< Updated upstream
     public BANDO Bando;
 
     //protected override void Start()
@@ -104,6 +105,14 @@ public class Worker : Enemy
     {
        
         for (int i = 0; i <= Targets.Count; i++)
+=======
+    }
+    public void TakeDmg(int dmg)
+    {
+        CurrentHp -= dmg;
+        Debug.Log("auch");
+        if (CurrentHp <= 0)
+>>>>>>> Stashed changes
         {
             if (!Targets[i].gameObject.activeSelf)  continue;
             float tempDistance = Vector3.Distance(transform.position, Targets[i].transform.position);
